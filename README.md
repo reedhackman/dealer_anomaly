@@ -53,5 +53,5 @@ iex -S mix
 See top 3 offenders by running
 
 ```
-DealerAnomaly.work()
+DealerAnomaly.three_most_positive()
 ```
