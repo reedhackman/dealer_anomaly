@@ -28,13 +28,18 @@ review content as they do scores of dealerships or their employees.
 
 ## How to run
 
-Elixir and Erlang must be installed. I'm omitting the installation instructions since
-the reader of this most likely already has it installed on their machine if they're
-checking out an Elixir project :)
+Make sure Elixir is installed
+> Installation instructions: https://elixir-lang.org/install.html
 
-1. Clone repository to local machine
-2. Go to local repository directory
-3. Install dependencies by running `mix deps.get`
-4. Run tests to verify program integrity by running `mix test`
+Clone repository to local machine
+
+Go to local repository directory
+
+Install dependencies
+```
+mix deps.get
+```
+
+Run tests to verify program integrity by running `mix test`
 5. Open interactive elixir by running `iex -S mix`
 6. See top 3 offenders by running `DealerAnomaly.work()`
