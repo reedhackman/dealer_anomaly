@@ -18,12 +18,11 @@ defmodule DealerAnomaly do
   The function that accomplishes our task. It gets the HTML for the pages corresponding
   to each of the URLs above, extracts the reviews section from each page, parses
   the HTML for our desired data, and then sorts it in order of review positivity.
-  Because we only want the 3 best reviews, it onlyction from each page, parses
-  the HTML for our desired data, and then sorts it in order of review positivity.
   Because we only want the 3 best reviews, it only returns the first 3 elements of
   the sorted list.
+
   """
-  def work do
+  def three_most_positive do
     parsed_reviews =
       Enum.reduce(@urls, [], fn url, all_reviews ->
         page_of_reviews = Scraper.scrape_reviews(url)
@@ -35,7 +34,7 @@ defmodule DealerAnomaly do
         ConvertReview.from_html(review_html)
       end)
 
-    sorted_reviews = sort_reviews(converted_reviews)
+    sorted_reviews = sort_by_positivity(converted_reviews)
 
     Enum.take(sorted_reviews, 3)
   end
@@ -45,7 +44,7 @@ defmodule DealerAnomaly do
   numerical score, followed by the number of employees that are associated with
   the (probably) perfect score.
   """
-  def sort_reviews(reviews) do
+  def sort_by_positivity(reviews) do
     reviews
     |> Enum.sort_by(
       &{&1.recommend_dealer === "Yes", &1.ratings.average, length(&1.employees)},

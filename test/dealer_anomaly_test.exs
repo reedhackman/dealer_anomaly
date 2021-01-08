@@ -2,7 +2,7 @@ defmodule DealerAnomalyTest do
   use ExUnit.Case
   alias DealerAnomaly
 
-  describe "sort_reviews/1" do
+  describe "sort_by_positivity/1" do
     @review_one %{
       comments:
         "Adrian was extremely helpful in selecting my new Buick. He was very courteous and understand with all of the question i had asked. For sure will come back for my next vehicle. ",
@@ -56,7 +56,7 @@ defmodule DealerAnomalyTest do
 
     test("correctly sorts the reviews") do
       reviews_list = [@review_one, @review_two, @review_three]
-      sorted_reviews = DealerAnomaly.sort_reviews(reviews_list)
+      sorted_reviews = DealerAnomaly.sort_by_positivity(reviews_list)
 
       assert sorted_reviews == [@review_three, @review_one, @review_two]
     end

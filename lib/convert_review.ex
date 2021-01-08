@@ -54,20 +54,18 @@ defmodule DealerAnomaly.ConvertReview do
     end)
   end
 
-  @doc """
-  DealerRater uses CSS class names to display how many stars each rating category
-  recieves from the reviewer. Because of this, we need to isolate the appropriate
-  field and then parse the location of the numeric value from it. In the CSS, the
-  star score is represented between 00 - 50, and our desired format is single
-  digit from 0 - 5, so we need to convert and then divide the CSS rating by 10.
-  Additionally, we compute the average of these ratings for sorting purposes.
-  It's worth noting that we COULD determine said average by looking at the overall
-  stars on the review, but there are several reviews where the user didn't assign
-  any rating for some of the categories (i.e. gave 5 stars to overall experience
-  and didn't assign stars to quality, but still displayed as 5), so doing the
-  additional step of averaging it outselves will help filter out the "incomplete"
-  reviews.
-  """
+  # DealerRater uses CSS class names to display how many stars each rating category
+  # recieves from the reviewer. Because of this, we need to isolate the appropriate
+  # field and then parse the location of the numeric value from it. In the CSS, the
+  # star score is represented between 00 - 50, and our desired format is a Float
+  # in the range of 0 - 5, so we need to convert and then divide the CSS rating by 10.
+  # Additionally, we compute the average of these ratings for sorting purposes.
+  # It's worth noting that we COULD determine said average by looking at the overall
+  # stars on the review, but there are several reviews where the user didn't assign
+  # any rating for some of the categories (i.e. gave 5 stars to overall experience
+  # and didn't assign stars to quality, but still displayed as 5), so doing the
+  # additional step of averaging it outselves will help filter out the "incomplete"
+  # reviews.
   defp parse_ratings(html) do
     [
       {"div", [{"class", customer_service_css_class}], []},
