@@ -40,6 +40,7 @@ Install dependencies
 mix deps.get
 ```
 
-Run tests to verify program integrity by running `mix test`
-5. Open interactive elixir by running `iex -S mix`
-6. See top 3 offenders by running `DealerAnomaly.work()`
+Run tests
+```mix test```
+5. Open interactive elixir ```iex -S mix```
+6. See top 3 offenders by running ```DealerAnomaly.work()```
