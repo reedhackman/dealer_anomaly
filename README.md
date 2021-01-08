@@ -5,30 +5,27 @@ a product (in this case A car dealership's reviews) and try to determine which
 reviews were created by an individual (or group) to artificially boost the reviews
 of said product.
 
-This project assumes that the most overly positive endorsement of the car dealership
-is one that recommends the dealer, gives 5/5 stars for each of the five rating
-categories, and includes as many employees of the dealership as possible.
-The justification for this is that it will bring up the average score for each of the
-rating categories, thus making the user more likely to select said dealership when
-deciding where to shop. Because most of the reviews give full stars across categories,
-we need an additional field to sort by, and each employee that is interacted with in
-the review adds credibility to the quality of the dealership. Additionally, this
-project was done at the beginning of 2021, when the United States is in the middle
-of the COVID-19 pandemic and people are incentivized to interact with as few people
-as possible, further adding suspicion to reviews from this time period with many
-interactions.
+## Positivity Criteria
 
-Another strategy for finding fake reviews would be searching the review text for
-grammar/spelling mistakes instead of filtering by number of employees that a reviewer
-interacted with, but I know too many people with poor grammar to trust in that reasoning.
-A better method for going down the text-parsing route would be cross referencing the
-review comments with a list of buzzwords and figuring out which reviews were proportionally
-too high in the buzzwords, but we're assuming that people don't care as much about
-review content as they do scores of dealerships or their employees.
+The most positive reviews are sorted according to
+
+```
+review recommends dealership
+number of stars in detailed breakdown
+higher number of employees on the review is more positive
+```
+
+Other possible criteria
+
+```
+spelling/grammar mistakes in review comment
+percent of buzzwords in review comment
+```
 
 ## How to run
 
 Make sure Elixir is installed
+
 > Installation instructions: https://elixir-lang.org/install.html
 
 Clone repository to local machine
@@ -36,21 +33,25 @@ Clone repository to local machine
 Go to local repository directory
 
 Install dependencies
+
 ```
 mix deps.get
 ```
 
 Run tests
+
 ```
 mix test
 ```
 
 Open interactive elixir
+
 ```
 iex -S mix
 ```
 
 See top 3 offenders by running
+
 ```
 DealerAnomaly.work()
 ```
