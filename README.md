@@ -1,6 +1,6 @@
 # DealerAnomaly
 
-A personal project/thought experiment. Our goal is to take an existing website for
+A personal project/thought experiment. The goal is to take an existing website for
 a product (in this case A car dealership's reviews) and try to determine which
 reviews were created by an individual (or group) to artificially boost the reviews
 of said product.
