@@ -7,11 +7,11 @@ of said product.
 
 This project assumes that the most overly positive endorsement of the car dealership
 is one that recommends the dealer, gives 5/5 stars for each of the five rating
-categories, and includes as many people employees of the dealership as possible.
+categories, and includes as many employees of the dealership as possible.
 The justification for this is that it will bring up the average score for each of the
 rating categories, thus making the user more likely to select said dealership when
 deciding where to shop. Because most of the reviews give full stars across categories,
-we need and additional field to sort by, and each employee that is interacted with in
+we need an additional field to sort by, and each employee that is interacted with in
 the review adds credibility to the quality of the dealership. Additionally, this
 project was done at the beginning of 2021, when the United States is in the middle
 of the COVID-19 pandemic and people are incentivized to interact with as few people
