@@ -41,6 +41,16 @@ mix deps.get
 ```
 
 Run tests
-```mix test```
-5. Open interactive elixir ```iex -S mix```
-6. See top 3 offenders by running ```DealerAnomaly.work()```
+```
+mix test
+```
+
+Open interactive elixir
+```
+iex -S mix
+```
+
+See top 3 offenders by running
+```
+DealerAnomaly.work()
+```
